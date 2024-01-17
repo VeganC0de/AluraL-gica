@@ -17,6 +17,7 @@ nombreUsuario = prompt("Cual es tu nombre?");
  edad = prompt("Cual es tu edad");
 
 if ( edad >= 18){
-    alert("¡Puedes obtener tu licencia de conducir!")
+    alert( nombreUsuario + " " + '¡Puedes obtener tu licencia de conducir!')
+} else {
+    alert("Estas chiquito para conducir")
 }
-

@@ -1,17 +1,37 @@
-let numeroSecreto = 6;
-let numeroUsuario = prompt("Me indicas un numero por favor:"); // Utilizacion del CamelCase
+//Variables
+let numeroMaximoPosible = prompt("Indicame partiendo del 1, ¿hasta que numero maximo podria estar el numero deseado a buscar?");
+let numeroSecreto = Math.floor(Math.random()*numeroMaximoPosible)+1;
+let numeroUsuario = 0;
+let intentos = 10;
+//let palabraVeces = 'vez';
+let maximosIntentos = 6;
 
-console.log(numeroUsuario);
 
-if (numeroUsuario == numeroSecreto) {
-    alert('Acertaste el numero');
+while (numeroUsuario != numeroSecreto) {
+    numeroUsuario = parseInt(prompt(`Me indicas un número entre 1 y ${numeroMaximoPosible}  por favor:`));
+
+    console.log(typeof(numeroUsuario));
+    if (numeroUsuario == numeroSecreto) {
+        //Acertamos, fue verdadera la condición
+        alert(`Acertaste, el número es: ${numeroUsuario}. Lo hiciste en ${intentos} ${intentos == 1 ? 'vez' : 'veces' }`);
+    } else {
+        if (numeroUsuario > numeroSecreto) {
+            alert('El número secreto es menor');
+        } else {
+            alert('El número secreto es mayor');
+        }
+        //Incrementamos el contador cuando no acierta
+        //intentos = intentos + 1;
+        //intentos += 1;
+        intentos++;
+
+        //palabraVeces = 'veces';
+        if (intentos > maximosIntentos) {
+            alert(`Llegaste al número máximo de ${maximosIntentos} intentos`);
+            break;
+        }
+        //La condición no se cumplió
+        //alert('Lo siento, no acertaste el número');
+    }
 }
-
-if (numeroUsuario !== numeroSecreto) {
-    alert("No Acertaste el numero")
-}
-
-//alert("Hola Mundo"); "Es una alerta que aparece como una alerta"
-//prompt("Me indicas un numero por favor del 1 al 10"); "Cajita para rellenar"
-
 
